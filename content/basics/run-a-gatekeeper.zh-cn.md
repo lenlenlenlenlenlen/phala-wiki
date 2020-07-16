@@ -18,6 +18,10 @@ draft: false
 
 ### 守门人需要抵押多少 PHA
 
+在测试网上做守门人需要抵押 **10** 个测试币。
+
+[点此查看如何领取测试币](https://www.yuque.com/docs/share/e016c4c3-bc63-4689-920e-6f7c0434e4c0?#)
+
 您可以在 [这个页面](https://wiki.polkadot.network/docs/en/faq#what-are-the-ways-to-find-out-the-minimum-stake-necessary-for-the-validators) 找到估算所需 PHA 数额的方法。
 守门人将根据 [Phragmen算法](https://wiki.polkadot.network/docs/en/learn-phragmen) 进行选举。要想入选，您和[提名人](https://wiki.polkadot.network/docs/en/maintain-nominator)的保证金之和必须不低于其他守门人。赢得提名人的支持非常重要。此外，也要注意在您的 Stash 账号和 [Controlloer 账号](https://wiki.polkadot.network/docs/en/learn-keys)上都要留有足够的 PHA。
 
@@ -136,7 +140,7 @@ cargo install --force --git https://github.com/paritytech/substrate subkey
 - 绑定 Stash 账号的 PHA 。**这个账号将负责保管你的保证金。**
 - 选择 Controllor 账号。**这个账号将用于开启或暂停守门人的验证行为。**
 
-首先，点击 `质押` > `Account Actions` > `New Stake` （按照截图进行操作）。
+首先，点击 `质押` > `Account Actions` > `Stash` （按照截图进行操作）。
 
 ![dashboard bonding](https://wiki.polkadot.network/docs/assets/guides/how-to-validate/polkadot-dashboard-bonding.jpg)
 
@@ -178,7 +182,7 @@ cargo install --force --git https://github.com/paritytech/substrate subkey
 如果你在远端服务器上运行守门人节点，可能运行这个指令会更简单（假设你没有修改默认 HTTP PRC 端口号）：
 
 ```sh
-curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method": "author_rotateKeys", "params":[]}' http://localhost:9933
+curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method": "author_rotateKeys", "params":[]}' http://localhost:9133
 ```
 
 它会返回一个十六进制编码的 “result” 字段，由4个公钥串联而成。记下即可。
